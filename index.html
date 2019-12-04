@@ -1,0 +1,34 @@
+<html> 
+<head> 
+<style>
+#time:hover{
+ background-color: #333333;
+}
+</style>
+<script type="text/javascript">
+function startTime()
+{
+var tm=new Date();
+var h=tm.getHours();
+var m=tm.getMinutes();
+var s=tm.getSeconds();
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);
+}
+function checkTime(i)
+{
+if (i<10)
+{
+i="0" + i;
+}
+return i;
+}
+</script> </head> 
+<body 
+onload="startTime()"> 
+<div id="time" style="background-color:#111111; color:white; height:100%; width:100%; font-size:2400%; text-align: center">
+<p id="txt"> </p></div> 
+</body> 
+</html>
