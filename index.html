@@ -20,7 +20,7 @@ body{
   height: 400px;
   background: none;
   border: 4px solid;
-  color: rgb(255,128,0);
+  color: white;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
@@ -55,6 +55,42 @@ body{
 .btn:hover::after{
   right: 80%;
 }
+.floating-text{
+  text-transform: uppercase;
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  color: #ffffff40;
+  transform: translateY(0);
+  animation: fl1 3s infinite linear;
+}
+
+.floating-text::before{
+  content: attr(data-text);
+  position: absolute;
+  color: #000;
+  clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+  animation: fl2 3s infinite linear;
+}
+
+@keyframes fl1 {
+  30%{
+    transform: translateY(10%) rotate(4deg);
+  }
+  70%{
+    transform: translateY(10%) rotate(-4deg);
+  }
+}
+
+@keyframes fl2 {
+  30%{
+  clip-path: polygon(0 0,100% 0,100% 24%,0 56%);
+  }
+  70%{
+  clip-path: polygon(0 0,100% 0,100% 56%,0 24%);
+  }
+}
+
 </style>
 <script type="text/javascript">
 function startTime()
@@ -79,6 +115,6 @@ return i;
 </script> </head> 
 <body 
 onload="startTime()"> 
-<button class="btn"><p id="txt"></p></button>
+<div class="floating-text" ><button class="btn"><p id="txt"></p></button></div>
 </body> 
 </html>
