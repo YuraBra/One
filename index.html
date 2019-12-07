@@ -1,8 +1,59 @@
 <html> 
 <head> 
 <style>
-#time:hover{
- background-color: #333333;
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat",sans-serif;
+}
+
+body{
+  background: #353b48;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn{
+  width: 1100px;
+  height: 400px;
+  background: none;
+  border: 4px solid;
+  color: rgb(255,128,0);
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 250px;
+  position: relative;
+}
+
+.btn::before,.btn::after{
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 4px;
+  background: #353b48;
+  transform: skewX(50deg);
+  transition: .4s linear;
+}
+
+.btn::before{
+  top: -4px;
+  left: 10%;
+}
+
+.btn::after{
+  bottom: -4px;
+  right: 10%;
+}
+
+.btn:hover::before{
+  left: 80%;
+}
+
+.btn:hover::after{
+  right: 80%;
 }
 </style>
 <script type="text/javascript">
@@ -28,7 +79,6 @@ return i;
 </script> </head> 
 <body 
 onload="startTime()"> 
-<div id="time" style="background-color:#111111; color:white; height:100%; width:100%; font-size:2400%; text-align: center">
-<p id="txt"> </p></div> 
+<button class="btn"><p id="txt"></p></button>
 </body> 
 </html>
